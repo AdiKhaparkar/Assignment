@@ -100,7 +100,7 @@ FinalValidator= ()=>{
         <View style={{flexDirection: 'row'}}>
         <View style={styles.placeholder}>
         <TextInputComponent
-            placeholder="Enter Password"
+            placeholder="Enter Password!!"
             onBlur={() => this.passwordValidator()}
             secureTextEntry={this.state.secureTextEntry}
             style={styles.placeholderpass}
@@ -168,7 +168,8 @@ const styles = StyleSheet.create({
         borderTopColor:"white",
         borderWidth:1,
         flexDirection:'row',
-        borderWidth:2
+        borderWidth:2,
+        
       },
       EmailIdError:{
         color: 'red',
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
     },
     HeadingStyle:{
       fontSize:20,
-      color:"violet",
+      color:"blue",
       
     }
 
