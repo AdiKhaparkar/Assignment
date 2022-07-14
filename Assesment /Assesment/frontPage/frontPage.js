@@ -4,13 +4,12 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
   Button,
-  TouchableOpacity,
   Modal,
 } from 'react-native';
-import TextInputComponent from './TextInput';
-class LoginPage extends Component {
+import TextInputComponent from '../ReusableComponent/textInputComponent';
+import HeaderComponent from '../ReusableComponent/TextHeading';
+class FrontPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,9 +39,9 @@ class LoginPage extends Component {
   };
   CheckEmail = () => {
     if (this.state.EnteredEmail == ' ') {
-      this.setState({emailError: 'Valid Email ok '});
-    } else {
       this.setState({emailError: 'Please enter a Valid Email '});
+    } else {
+      this.setState({emailError:'Valid Email ok ' });
     }
   };
   passwordValidator = () => {
@@ -83,15 +82,12 @@ class LoginPage extends Component {
       this.state.MobileNumber === ''
     )
     { alert('Check Address Details '); } 
-    
-
-
     else {
       this.setState({show: true});
     }
   };
-
   render() {
+    let{password,FullName,HouseNo,StreetName,Area,City,State,MobileNumber,EnteredEmail}=this.state;
     return (
       <ScrollView style={styles.WholeBackground}>
         <TextInputComponent
@@ -127,8 +123,7 @@ class LoginPage extends Component {
           name={'Confirm Password'}
         />
         <Text style={styles.EmailIdError}>{this.state.passwordError}</Text>
-
-        <TextInputComponent name="Address" />
+        <HeaderComponent name="Address" />
         <TextInputComponent
           placeholder="House No"
           onChangeText={text => this.setState({HouseNo: text})}
@@ -150,34 +145,25 @@ class LoginPage extends Component {
           onChangeText={text => this.setState({State: text})}
         />
         <TextInputComponent
-          keyboardType="number-pad"
+          //keyboardType="number-pad"
           onChangeText={text => this.setState({MobileNumber: text})}
           placeholder="Mobile Number"
-        />
+        /> 
         <Modal
           visible={this.state.show}
           animationType={'slide'}
           transparent={false}>
           <View style={styles.ParentView}>
             <View style={styles.ChildView}>
-              <Text style={{fontSize: 15}}>
-                Password: {this.state.password}
-              </Text>
-              <Text style={{fontSize: 15}}>
-                FullName: {this.state.FullName}{' '}
-              </Text>
-              <Text style={{fontSize: 15}}>HouseNo: {this.state.HouseNo}</Text>
-              <Text style={{fontSize: 15}}>
-                StreetName: {this.state.StreetName}{' '}
-              </Text>
-              <Text style={{fontSize: 15}}>Area: {this.state.Area}</Text>
-              <Text style={{fontSize: 15}}>City: {this.state.City}</Text>
-              <Text style={{fontSize: 15}}>State: {this.state.State}</Text>
-              <Text style={{fontSize: 15}}>
-                {' '}
-                MobileNumber: {this.state.MobileNumber}
-              </Text>
-              <Text style={{fontSize: 15}}>Email: {this.state.email}</Text>
+              <Text style={styles.ModaloutputData}> Password: {password} </Text>
+              <Text style={styles.ModaloutputData}> FullName: {FullName} </Text>
+              <Text style={styles.ModaloutputData}> HouseNo: {HouseNo}</Text>
+              <Text style={styles.ModaloutputData}> StreetName: {StreetName} </Text>
+              <Text style={styles.ModaloutputData}> Area: {Area}</Text>
+              <Text style={styles.ModaloutputData}> City: {City}</Text>
+              <Text style={styles.ModaloutputData}> State: {State}</Text>
+              <Text style={styles.ModaloutputData}> MobileNumber: {MobileNumber} </Text>
+              <Text style={styles.ModaloutputData}>Email: {EnteredEmail}</Text>
               <Button
                 title="Close Modal"
                 onPress={() => {
@@ -197,18 +183,9 @@ const styles = StyleSheet.create({
     color: 'red',
     marginLeft: 20,
   },
-  ParentView: {
-    flex: 1,
-  },
-  ChildView: {
-    backgroundColor: 'grey',
-    margin: 50,
-    padding: 40,
-    borderRadius: 10,
-    flex: 1,
-  },
   WholeBackground: {
-    backgroundColor: 'pink',
+    backgroundColor: 'offwhite',
   },
+  
 });
-export default LoginPage;
+export default FrontPage;

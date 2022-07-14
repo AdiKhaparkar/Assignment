@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import LoginPage from './User Data/UserData';
+import { StyleSheet } from 'react-native';
+import FrontPage from './frontPage/frontPage';
+
 export default class Preview extends Component {
   constructor(props) {
     super(props);
     this.state = {
     };
   }
+
   render() {
     return (
-        <LoginPage/>
+      
+        <FrontPage/>
       
     );
   }
 }
-const styles = StyleSheet.create({})
 
+const styles = StyleSheet.create({})

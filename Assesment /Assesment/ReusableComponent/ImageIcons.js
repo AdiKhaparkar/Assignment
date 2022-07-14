@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Image,StyleSheet } from 'react-native'
 
-const ImageScreen = (props) => {
+const ImageIcons = (props) => {
     return (
         <View>
             <Image  source={props.image} style={props.style}/>
@@ -13,5 +13,4 @@ const style=StyleSheet.create({
 })
 
 
-export default ImageScreen;
-
+export default ImageIcons;

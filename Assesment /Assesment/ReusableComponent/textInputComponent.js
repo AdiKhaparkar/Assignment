@@ -1,30 +1,28 @@
 import React, {Component} from 'react';
 import {View, TextInput,Text, StyleSheet,TouchableOpacity} from 'react-native';
-import ImageScreen from './ImageScreen';
-import HeaderComponent from './HeaderComponent';
+import ImageIcons from './ImageIcons';
+import HeaderComponent from './TextHeading';
 class TextInputComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    let {style, placeholder,image,name, onBlur, autoCapitalize, onChangeText} = this.props;
+    let { placeholder,image,name, onBlur, autoCapitalize, onChangeText} = this.props;
     return (
       <View>
         <HeaderComponent name={name} style={styles.HeadingStyle} />
       <View style={styles.placeholder}>
         <TouchableOpacity>
-        <ImageScreen  style={styles.iconpass}  image={image}  />
+        <ImageIcons  style={styles.iconpass}  image={image}  />
         </TouchableOpacity>
         <View>
           <TextInput
-            style={style}
             placeholder={placeholder}
             onBlur={onBlur}
             autoCapitalize={autoCapitalize}
             onChangeText={onChangeText}>
           </TextInput>
-          
         </View>
       </View>
       </View>
